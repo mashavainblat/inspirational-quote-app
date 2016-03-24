@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InspirationalQuotes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+</head>
+<% @quotes.each do |quote| %>
+	<body style="background-color:<%= quote.background_color %>;background-image: url(<%= quote.image %>);background-repeat: no-repeat; background-size:100%;">
+<% end %>
+
+	<div id="buttonContainer">
+		<%= link_to "New Quote", "#", :onclick => "getNewQuote()"%>
+		<!-- <button id="getNewQuote">New quote</button> -->
+	</div>
+
+	<%= yield %>
+
+	</body>
+</html>
