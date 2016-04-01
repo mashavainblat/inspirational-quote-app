@@ -9,11 +9,13 @@
 </head>
 <% @quotes.each do |quote| %>
 	<body style="background-color:<%= quote.background_color %>;background-image: url(<%= quote.image %>);background-repeat: no-repeat; background-size:100%;">
+	<img id="<%= quote.image %>" src="<%= quote.image %>"><br>
+
 <% end %>
 
+
 	<div id="buttonContainer">
-		<%= link_to "New Quote", "#", :onclick => "getNewQuote()"%>
-		<!-- <button id="getNewQuote">New quote</button> -->
+		<button id="getNewQuote">New quote</button>
 	</div>
 
 	<%= yield %>

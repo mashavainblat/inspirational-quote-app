@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   resources :quotes
+
+  resource :quotes do
+  	get :json, on: :member
+  end
+  root "quotes#index"
+
+  get "new_quote" => "quotes#new_quote"
 end
 
 # ROUTES
@@ -12,3 +19,6 @@ end
 #            PATCH  /quotes/:id(.:format)      quotes#update
 #            PUT    /quotes/:id(.:format)      quotes#update
 #            DELETE /quotes/:id(.:format)      quotes#destroy
+#       root GET    /                          quotes#index
+#   newQuote GET    /newQuote(.:format)        quotes#newQuote
+

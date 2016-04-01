@@ -15,9 +15,64 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function(){
+		
+	var imageUrl = $("img").attr("id")
+	console.log(imageUrl)
+	// var hexCode = $(this).attr('id');
+	var $button = $("#getNewQuote")
 
-	function getNewQuote(){
-		console.log("getting quote")
-	}
 
+	$("button").click(function(){
+		console.log("clicking button")
+		$.ajax({
+			method: "GET",
+			url: "/quotes/json"
+		}).then(
+			function(response){
+				console.log("response: ", response)
+				//loop through quotes.image
+
+			},
+			function(error){
+				console.log(error)
+			}
+		)
+	});
 }) //ENDS DOCUMENT.READY
+
+
+
+// var onUpload = function(err, metadata) {
+//     ospry.get({
+//       url: metadata.url,
+//       maxHeight: 400,
+//       imageReady: function(err, domImage) {
+
+//         var path = window.location.pathname.split('/')[2]
+
+//         var data = { image: domImage.src }
+
+//         $('body').append(domImage); 
+
+//         $.ajax({
+//           url: '/users/' + path + '/updatejson',
+//           data: data,
+//           method: 'PUT'
+//         }).then(function(result) {
+//           console.log(result);
+//           location.reload();
+//         });
+//         // make POST request to Users controller
+//         // to add img url to user
+//       $.ajax({
+//           url: '/hikes/' + path + '/updatejson2',
+//           data: data,
+//           method: 'PUT'
+//         }).then(function(result) {
+//           console.log(result);
+//           location.reload();
+          
+//         });
+//       },
+//     });
+//   }; // end onupload function 
