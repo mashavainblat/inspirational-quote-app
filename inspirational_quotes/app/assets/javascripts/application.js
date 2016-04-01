@@ -14,23 +14,41 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-		
-	var imageUrl = $("img").attr("id")
-	console.log(imageUrl)
-	// var hexCode = $(this).attr('id');
-	var $button = $("#getNewQuote")
 
+
+// background-image: url(<%= quote.image %>)
+
+$(document).ready(function(){
+
+// $("body").css({"background-image": "url(http://i.imgur.com/IZ6fgvX.jpg)"})
+counter = 0;
 
 	$("button").click(function(){
-		console.log("clicking button")
+		// console.log("clicking button")
 		$.ajax({
 			method: "GET",
 			url: "/quotes/json"
 		}).then(
 			function(response){
-				console.log("response: ", response)
+				console.log(counter)
+				// console.log("response: ", response)
 				//loop through quotes.image
+				// for(var i = 0; i<response.length; i++){
+					// console.log("response[i].image: ", response[i].image)
+					console.log("response[counter].image", response[counter].image)
+					var imgUrl = response[counter].image
+					// var imgUrl = image.toString()
+					console.log("imgUrl: ", imgUrl)
+
+					// console.log("body: ", $("body"))
+					$("body").css({"background-image": "url("+imgUrl+")"})
+					counter ++
+					if(counter>=response.length){
+						counter = 0
+					}
+				// } //ends for loop
+
+
 
 			},
 			function(error){
