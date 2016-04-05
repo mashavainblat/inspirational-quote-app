@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700|Oswald|Montserrat:400,700' rel='stylesheet' type='text/css'>
   <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
 </head>
 <% @quotes.each do |quote| %>
-	<body style="background-color:<%= quote.background_color %>;;background-repeat: no-repeat; background-size:100%;">
+	<body style="background-color:<%= quote.background_color %>;background-repeat: no-repeat; background-size:100%;">
 
 <% end %>
 

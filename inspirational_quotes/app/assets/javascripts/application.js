@@ -20,7 +20,7 @@
 
 $(document).ready(function(){
 
-// $("body").css({"background-image": "url(http://i.imgur.com/IZ6fgvX.jpg)"})
+$("body").css({"background-image": "url(http://i.imgur.com/ZUs8GSe.jpg)"})
 counter = 0;
 
 	$("button").click(function(){
